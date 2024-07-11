@@ -1,0 +1,41 @@
+.section {
+  display: flex;
+  width: 100vw;
+  height: var(--vh);
+  align-items: center;
+  justify-content: center;
+
+
+  @include max-768 {
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+}
+
+.title {
+  font-size: 13rem;
+  white-space: nowrap;
+
+  @include max-768 {
+    font-size: 8rem;
+  }
+
+  @include max-480 {
+    font-size: 6rem;
+  }
+}
+
+.image {
+  height: 10rem;
+
+  @include max-768 {
+    height: 6rem;
+    width: 10rem;
+  }
+
+  @include max-480 {
+    height: 4.4rem;
+    width: 7rem;
+  }
+}

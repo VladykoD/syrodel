@@ -1,0 +1,279 @@
+.products {
+  composes: zero-padding from global;
+
+  @include max-768 {
+    display: none;
+  }
+}
+
+.slider {
+  position: relative;
+
+  a {
+    text-transform: uppercase;
+  }
+}
+
+
+.wrap {
+  overflow: visible;
+  z-index: 2;
+
+  & > div {
+    overflow: visible;
+    width: 100%;
+  }
+  & > div > div > div {
+    height: auto!important;
+  }
+}
+.container {
+  composes: container from global;
+  //padding-left: 0;
+  //padding-right: 12rem;
+  padding-right: 0;
+
+  @include max-1280 {
+    //padding-right: 5rem;
+  }
+
+  @include max-991 {
+    //padding-right: 16px;
+  }
+}
+
+.slideItem {
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: calc(100% / 14) * 6;
+  position: relative;
+
+
+  img {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+  }
+}
+
+.text {
+  padding-top: 3.5rem;
+  padding-bottom: 12rem;
+  min-height: 50rem;
+
+
+  @include max-1440 {
+    min-height: 44rem;
+  }
+  @include max-1280 {
+    min-height: 38rem;
+    padding-bottom: 9rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.title {
+  composes: title from global;
+  composes: title-h4 from global;
+  margin-bottom: 1.5rem;
+}
+
+
+.about {
+  margin-top: 1.5rem;
+  margin-bottom: 4rem;
+  max-width: 34rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  b {
+    font-size: 2rem;
+
+    @include max-1280 {
+      font-size: 1.8rem;
+    }
+  }
+
+  small {
+    display: block;
+    font-size: 1rem;
+  }
+  .col {
+    margin-bottom: 1.5rem;
+    width: 33.33%;
+    padding-right: 1.5rem;
+  }
+}
+.links {
+
+  @include max-1280 {
+    margin-top: auto;
+  }
+}
+.leftBlock {
+  width: calc(100% / 14) * 8;
+  padding-left: calc(100% / 14) * 1;
+  padding-right: calc(100% / 14) * 1;
+  box-sizing: border-box;
+
+  @include max-1440 {
+    width: calc(100% / 14) * 10;
+  }
+}
+
+
+
+/////////
+.navContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3.5rem;
+
+  @include max-1280 {
+    bottom: 0;
+  }
+}
+.navWrap {
+  position: relative;
+  //width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 91%;
+}
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  //position: absolute;
+  z-index: 10;
+  min-height: 1px;
+  padding-top: 0;
+  padding-bottom: 0;
+  //left: calc(5rem + 42.857%);
+
+  a {
+    margin-left: auto;
+
+    @include max-1280 {
+      position: absolute;
+      bottom: 6rem;
+      //left: 4.2rem;
+    }
+    @include max-991 {
+      //left: 3.5rem;
+    }
+  }
+
+  @include max-1440 {
+    //width: 56%;
+  }
+  @include max-1280 {
+    justify-content: space-between;
+  }
+}
+
+.btnsWrap {
+  margin-right: 3.5rem;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.btn {
+  @include buttonRes;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border: 2px solid $gray;
+  border-radius: 50%;
+  transition: border-color $trans;
+  cursor: pointer;
+
+  span {
+    transition: transform 0.3s $ease;
+  }
+
+  &:hover {
+    border-color: $blue;
+
+    .arrow-icon {
+      &::before {
+        background-color: $blue;
+      }
+
+      &::after {
+        border-color: $blue;
+      }
+    }
+  }
+
+  &--disabled {
+    border-color: $gray;
+    cursor: not-allowed;
+
+    .arrow-icon {
+      &::before {
+        background-color: $gray;
+      }
+
+      &::after {
+        border-color: $gray;
+      }
+    }
+
+    &:hover {
+      border-color: $gray;
+
+      .arrow-icon {
+        &::before {
+          background-color: $gray;
+        }
+
+        &::after {
+          border-color: $gray;
+        }
+      }
+    }
+  }
+
+  &.prev {
+    transform: rotate(180deg);
+  }
+
+  & + & {
+    margin-left: 2rem;
+
+    @include max-1280 {
+      margin-left: 1.2rem;
+    }
+  }
+}
+
+.slideNumber {
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+
+  @include max-1280 {
+    margin-right: 0;
+  }
+}
+.current {
+  min-width: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+.all {
+  margin-left: 0.75rem;
+}

@@ -1,0 +1,154 @@
+.first-section {
+  position: relative;
+  composes: container from global;
+
+  img {
+    width: 100%;
+  }
+}
+
+.title {
+  composes: title from global;
+  composes: title-h1 from global;
+  max-width: calc(100% / 14) * 6;
+  position: relative;
+  top: -.7rem;
+  right: 1.3rem;
+
+  @include max-1280 {
+    top: 0;
+    right: 0;
+  }
+  @include max-991 {
+    max-width: 80%;
+  }
+  @include max-768 {
+    max-width: 100%;
+  }
+}
+
+.wrap {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  min-height: var(--vh);
+  align-items: center;
+
+  @include max-991 {
+    flex-direction: column;
+  }
+}
+
+.left {
+  width: 100%;
+  display: flex;
+
+  @include max-991 {
+    padding-top: 120px;
+    padding-bottom: 64px;
+  }
+  @include max-768 {
+    padding-top: 100px;
+    padding-bottom: 44px;
+  }
+}
+
+.right {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+
+  @include max-1280 {
+    right: -5rem;
+  }
+  @include max-991 {
+    width: calc(100% + 32px);
+    right: 0;
+    left: 0;
+    position: relative;
+
+    display: block;
+    height: auto;
+    min-height: 20px;
+    flex-grow: 2;
+  }
+
+
+  img {
+    width: calc(100% / 14) * 8;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    opacity: .7;
+
+
+    @include max-1280 {
+      width: calc(100% / 14) * 7;
+    }
+
+    @include max-991 {
+      width: 100%;
+    }
+  }
+
+}
+
+
+.production-link {
+  width: calc(100% / 14) * 3;
+  margin-right: calc(100% / 14) * 1;
+
+  @include max-1280 {
+    display: none;
+  }
+
+  picture {
+    display: block;
+    margin-bottom: 2.5rem;
+  }
+}
+
+
+
+.round-block {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  width: 12rem;
+  height: 12rem;
+  transform-origin: 50% 50%;
+  animation: circle 30s linear;
+
+  @include max-1440 {
+    right: 80px;
+  }
+
+  @include max-991 {
+    width: 10rem;
+    height: 10rem;
+    bottom: 32px;
+    right: 32px;
+  }
+  @include max-768 {
+    width: 8rem;
+    height: 8rem;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  img {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes circle {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,243 @@
+.header {
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  composes: container from global;
+
+  @include max-991 {
+    position: fixed;
+    background-color: $white;
+  }
+}
+
+.header__logo {
+  margin-top: 2rem;
+  display: inline-block;
+
+  @include max-991 {
+    margin-top: 16px;
+  }
+
+  svg {
+    height: 3.125rem;
+
+    &:nth-of-type(1) {
+      width: 3.125rem;
+      margin-right: 0.625rem;
+    }
+    &:nth-of-type(2) {
+      width: 6.125rem;
+    }
+
+    @include max-991 {
+      height: 40px;
+
+      &:nth-of-type(1) {
+        width: 40px;
+        margin-right: 8px;
+      }
+      &:nth-of-type(2) {
+        width: 78px;
+      }
+    }
+  }
+}
+
+.burger {
+  display: none;
+}
+
+.main-menu {
+  display: none;
+}
+
+.header__aside {
+  position: fixed;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  justify-content: space-between;
+  width: 6.125rem;
+
+  @include max-1280 {
+    width: 5rem;
+  }
+
+  @include max-991 {
+    width: calc(100% - 146px - 16px);
+    height: 62px;
+    flex-direction: row-reverse;
+    padding-right: 16px;
+    align-items: center;
+  }
+}
+
+.lang-list {
+  margin: 0 auto 2.5rem;
+
+  @include max-991 {
+    margin: 0 24px 0 auto;
+    display: flex;
+    flex-direction: row;
+    column-gap: 8px;
+  }
+}
+
+
+.langListItem a {
+  padding: 1rem;
+  display: inline-block;
+  transition: color 0.3s $ease;
+  color: $black;
+
+  &:hover {
+    color: $blue;
+  }
+
+  &.active {
+    font-weight: 700;
+    pointer-events: none;
+  }
+
+  @include max-991 {
+    padding: 10px;
+    line-height: 24px;
+    height: 40px;
+  }
+}
+
+
+
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 6.125rem;
+  background: transparent;
+  cursor: pointer;
+  z-index: 10;
+
+  @include max-991 {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.active {
+    span:nth-of-type(2) {
+      opacity: 0;
+    }
+
+    span:nth-of-type(1) {
+      transform: rotate(-45deg) translate3d(-1px, -7px, 0);
+
+      @include max-991 {
+        transform: rotate(-45deg) translate3d(0, -6px, 0);
+      }
+    }
+
+    span:nth-of-type(3) {
+      transform: rotate(45deg) translate3d(-1px, 7px, 0);
+
+      @include max-991 {
+        transform: rotate(45deg) translate3d(0, 6px, 0);
+      }
+    }
+
+    &:hover {
+      span:nth-of-type(3) {
+        transform: rotate(45deg) translate3d(-1px, 7px, 0);;
+
+        @include max-991 {
+          transform: rotate(45deg) translate3d(0, 6px, 0);
+        }
+      }
+    }
+  }
+
+  &:hover {
+    span {
+      background-color: $blue;
+
+      &:nth-of-type(2) {
+        transform: scaleX(1);
+      }
+
+      &:nth-of-type(3) {
+        transform: scaleX(1);
+      }
+    }
+  }
+  &.active:hover {
+    .icon{
+      transform: rotate(90deg);
+    }
+    span {
+      background-color: $blue;
+    }
+  }
+}
+
+.icon {
+  transition: transform $trans;
+  transform-origin: center;
+
+  @include max-991 {
+    height: 32px;
+    padding: 3px 0;
+  }
+
+  span {
+    background: black;
+    display: block;
+    height: 4px;
+    margin: 6px 0;
+    width: 2.5rem;
+    transform-origin: 100% 50%;
+    transition: transform $trans, background $trans;
+
+    @include max-991 {
+      height: 2px;
+      margin: 5px 0;
+      width: 2rem;
+    }
+
+    &:nth-of-type(2) {
+      transform: scaleX(0.55);
+    }
+
+    &:nth-of-type(3) {
+      transform: scaleX(0.85);
+    }
+  }
+}
+
+
+.bottomBlock {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-bottom: 24px;
+  
+  @include max-991 {
+    display: none;
+  }
+}
+.top {
+  width: 40px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  span {
+    transform: rotate(-90deg);
+  }
+}

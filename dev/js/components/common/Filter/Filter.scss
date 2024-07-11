@@ -1,0 +1,92 @@
+.filter{
+  margin-bottom: 52px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 23px 26px;
+  margin-left: -10px;
+  margin-right: -10px;
+
+  @include max-1440 {
+    // margin-bottom: 2rem;
+  }
+
+  @include max-1280 {
+    gap: 0px 10px;
+    margin-bottom: 30px;
+  }
+  @include max-768 {
+
+  }
+
+  @include max-768 {
+
+  }
+
+  @include max-480 {
+    padding-right: 32px;
+  }
+
+}
+
+
+.button {
+  font-size: 1.25rem;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: $gray-darker;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  padding: 10px;
+  min-width: 1px;
+  transition: color .4s ease;
+
+  @include max-768 {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  span {
+    position: relative;
+    transition: color $trans;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      height: 2px;
+      background: currentColor;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      transition: opacity $trans;
+    }
+  }
+
+  &:hover{
+    background: transparent;
+    color: $black;
+  }
+
+  &:active {
+    color: #191934;
+  }
+
+  input:checked + span {
+    color: #191934;
+
+    &:hover::after {
+      opacity: 0;
+    }
+  }
+
+  &.active {
+    color: $blue;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+}

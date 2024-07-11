@@ -1,0 +1,106 @@
+.tabs {
+
+}
+
+.tabHead {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabName {
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.2;
+  transition: opacity .4s ease;
+  padding-bottom: 4px;
+  
+  &.active {
+    opacity: 1;
+  }
+}
+
+.tabBody {
+  width: 100%;
+  margin-top: 24px;
+  display: none;
+  
+  &.active{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  li + li,
+  p + p {
+    margin-top: 1rem;
+  }
+  br {
+    display: block;
+    height: 1rem;
+    content: '';
+    position: relative;
+  }
+  
+  ol, ul {
+    li {
+      position: relative;
+      padding-left: 24px;
+    }
+  }
+  
+  ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: calc(.5em - 3px);
+    width: 6px;
+    height: 6px;
+    background: $orange;
+    border-radius: 50%;
+  }
+  
+  ol li {
+    counter-increment: myCounter;
+    
+    &::before {
+      content: counter(myCounter) ".";
+      left: 0;
+      top: 0;
+      position: absolute;
+    }
+  }
+  
+}
+
+
+.listItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: .2em;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    border-bottom: 2px dotted $black;
+    opacity: .1;
+  }
+  
+  span {
+    display: inline-block;
+    background: $white;
+    position: relative;
+    z-index: 1;
+  }
+  
+  span:first-of-type {
+    margin-right: 16px;
+  }
+}

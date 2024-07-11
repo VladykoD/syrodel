@@ -1,0 +1,14 @@
+.tabs-container{
+  padding:24px 0;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+
+  .button{
+    border-color:transparent;
+
+    &.active{
+      border-color:$blue;
+    }
+  }
+}

@@ -1,0 +1,209 @@
+.footer {
+  flex: 0 0 auto;
+  composes: container from global;
+
+}
+
+.copy {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1rem;
+  flex-direction: row;
+  width: 11.875rem;
+
+  @include max-768 {
+    width: auto;
+    max-width: 11rem;
+  }
+}
+
+.logo {
+  width: 11.875rem;
+
+  @include max-991 {
+    width: 130px;
+  }
+  @include max-768 {
+    width: 100px;
+  }
+}
+.logo {
+  height: 10.9375rem;
+
+  @include max-991 {
+    height: 126px;
+  }
+  @include max-768 {
+    height: 100px;
+  }
+}
+
+.main {
+  border-top: 2px solid $gray;
+  padding-top: 2.5rem;
+  display: flex;
+
+  @include max-991 {
+    padding-top: 32px;
+  }
+  @include max-768 {
+    flex-wrap: wrap;
+  }
+  @include max-480 {
+    .col {
+      padding-right: 24px;
+      padding-bottom: 24px;
+    }
+  }
+}
+.nav,
+.mainContacts {
+  padding-top: 4rem;
+
+  @include max-991 {
+    padding-top: 34px;
+  }
+  @include max-768 {
+    padding: 0;
+  }
+}
+
+.col {
+  width: calc(100% / 14) * 2;
+  margin-right: calc(100% / 14) * 2;
+
+  @include max-768 {
+    margin: 0;
+    width: auto;
+    margin-right: auto;
+  }
+}
+
+.nav {
+  width: calc(100% / 14) * 6;
+  margin-right: calc(100% / 14) * 1;
+  columns: 2;
+
+  @include max-768 {
+    //width: 100%;
+    margin: 0;
+    padding: 0;
+    min-width: 260px;
+  }
+
+  li {
+    padding-right: 2rem;
+    break-inside: avoid;
+
+    @include max-991 {
+      padding-right: 16px;
+    }
+  }
+  a {
+    padding: 1rem 0;
+    display: inline-block;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+    transition: color $trans;
+    color: $black;
+
+    @include max-991 {
+      padding: 12px 0;
+    }
+
+    &:hover {
+      color: $blue;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $blue;
+      color: $blue;
+    }
+  }
+}
+
+.contacts {
+  width: calc(100% / 14 * 3);
+
+  @include max-991 {
+    width: 300px;
+    text-align: right;
+  }
+  @include max-768 {
+    margin-top: 2rem;
+    width: 50%;
+    text-align: left;
+  }
+  @include max-480 {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  p,
+  a.regular-link,
+  a {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  @include max-768 {
+    p {
+      display: block;
+    }
+  }
+
+  .regular-link {
+    text-transform: initial;
+    padding-bottom: 0.3rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.secondary {
+  padding-bottom: 2rem;
+  padding-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: self-end;
+
+  @include max-991 {
+    padding-top: 54px;
+  }
+  @include max-768 {
+    padding-top: 32px;
+
+    .copy {
+      margin-right: 1rem;
+    }
+  }
+  @include max-480 {
+    display: block;
+  }
+
+  .col {
+    width: calc(100% / 14) * 3;
+
+    @include max-768 {
+      text-align: right;
+    }
+  }
+
+  p,
+  a.regular-link,
+  a {
+    margin-bottom: 0;
+  }
+}
+.secondaryContact {
+  @include max-768 {
+    text-align: right;
+  }
+  @include max-480 {
+    margin-top: 0;
+      text-align: left;
+      padding-top: 0.5rem;
+  }
+}

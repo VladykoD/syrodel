@@ -1,0 +1,129 @@
+.wrapper{
+  position:relative;
+  cursor:text;
+  font-size: 13px;
+
+  flex-wrap: nowrap;
+  padding: 1.5rem 0 0.5rem 0;
+  margin-bottom: .5rem;
+  display: flex;
+  flex-grow: 2;
+  z-index: 2;
+
+  @include max-768 {
+    margin-bottom: 0;
+  }
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    transition: opacity .3s $easeIn;
+
+    @include mw-1024 {
+      height: 2px;
+    }
+  }
+  &::after {
+    z-index: 1;
+    background: $gray;
+  }
+  &::before {
+    z-index: 2;
+    background: $blue;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:active,
+  &:focus,
+  &.hover,
+  &.active,
+  &.focus {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  input, textarea{
+    height:calc(1em + 16px);
+    padding: 8px 0;
+    display:block;
+    border:none;
+    color:inherit;
+    box-sizing:border-box;
+
+    width: 100%;
+    font: 400 1.3rem/1.2 $muller;
+    transform: translateY(0.5rem);
+
+    @include max-768 {
+      font-size: 1rem;
+    }
+  }
+  textarea{
+    resize:none;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+    overflow: hidden;
+
+    &::-webkit-scrollbar{
+      display:none;
+    }
+  }
+
+  &.focus, &.not-empty{
+
+    .placeholder{
+      transform: scale(0.6) translateY(-100%);
+      opacity: 0.5;
+    }
+  }
+}
+
+.wrapper, .file-wrapper{
+  &.error{
+    .notice{
+      opacity:1;
+      color:$pink;
+    }
+  }
+}
+.placeholder, .notice{
+  position:absolute;
+  pointer-events:none;
+}
+.placeholder{
+  font: 400 1.3rem/1.2 $muller;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  transition: transform .3s $ease, opacity .3s $ease;
+  transform-origin: 0 0;
+  transform: scale(1) translateY(0);
+  opacity: 1;
+  will-change: transform, opacity;
+
+  @include max-768 {
+    font-size: 1rem;
+  }
+}
+
+.notice{
+  transition:opacity 0.3s $ease;
+  font-weight: 500;
+  font-size: 0.8rem;
+  top:100%;
+  left:0;
+  margin-top:4px;
+  opacity:0;
+  color: $red;
+
+  @include mw-1024 {
+    font-size: 12px;
+  }
+}

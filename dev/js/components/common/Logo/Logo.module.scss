@@ -1,0 +1,81 @@
+.logo {
+  display: flex;
+  flex-direction: row;
+  column-gap: 12px;
+  z-index: 8;
+
+  align-items: center;
+  justify-content: center;
+
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include mw-768 {
+    column-gap: 20px;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+  }
+  &:hover [data-animation="icon"]::after {
+    opacity: 1;
+  }
+}
+
+.logoSvg {
+  position: relative;
+  z-index: 2;
+}
+.logoSvgWrap {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+
+  @include mw-768 {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background: radial-gradient(62.49% 59.04% at 3.52% 32.11%, #FF00AF 0%, #7000FF 100%);
+    transition: opacity .5s $ease;
+    opacity: 0;
+  }
+}
+
+.logoTitle {
+  font: 700 14px/1 $accentFont;
+  color: $white;
+
+
+  @include mw-768 {
+    font-size: 24px;
+  }
+}
+
+.logoSubtitle {
+  display: none;
+
+  @include mw-1280 {
+    display: block;
+    font-size: 14px;
+    line-height: 1;
+    color: $gray;
+  }
+}

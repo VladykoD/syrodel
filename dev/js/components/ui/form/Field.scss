@@ -1,0 +1,41 @@
+.field-wrapper{
+  display:block;
+  position:relative;
+
+  &.error{
+    .field-label{
+      color:$red;
+    }
+    .field-notice{
+      color:$red;
+
+      &:before{
+        content:'';
+        width:14px;
+        height:14px;
+        margin-right:6px;
+        display:block;
+        background:url('error.svg') no-repeat center / contain;
+      }
+    }
+  }
+}
+.field-label, .field-notice{
+  min-height:18px;
+  display:block;
+  opacity:0.8;
+}
+.field-label{
+  font-size:14px;
+  line-height:18px;
+}
+.field-notice{
+  width:100%;
+  display:flex;
+  align-items:flex-start;
+  position:absolute;
+  top:100%;
+  margin-top:-26px;
+  font-size:12px;
+  line-height:16px;
+}

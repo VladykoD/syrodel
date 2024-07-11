@@ -1,0 +1,272 @@
+.section {
+  padding-top: 0;
+
+  a {
+    color: $black;
+  }
+}
+
+.container {
+  composes: container from global;
+  display: flex;
+  flex-direction: row;
+  column-gap: 4rem;
+
+  & > div {
+    width: calc(50% - 2rem);
+
+    @include max-991 {
+      width: 100%;
+    }
+  }
+
+  @include max-991 {
+    display: block;
+  }
+}
+
+.colLeft {
+  padding-top: 10.4rem;
+
+  @include max-1280 {
+    padding-top: 9rem;
+  }
+
+  @include max-991 {
+    margin-bottom: 2.5rem;
+    padding-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
+  @include max-768 {
+    row-gap: 1.65rem;
+    padding-top: 6rem;
+  }
+}
+.colRight {
+
+}
+
+
+.secondaryContact {
+  @include max-991 {
+
+  }
+}
+.address {
+  margin-bottom: 2rem;
+  font-style: normal;
+  font-size: 3.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+
+  @include max-1280 {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+  }
+
+  @include max-991 {
+    margin: 0;
+    font-size: 2.35rem;
+  }
+
+  @include max-768 {
+    font-size: 1.5rem;
+  }
+
+}
+.addressTitle {
+  display: block;
+  margin-bottom: 1.3rem;
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+
+  @include max-1280 {
+    font-size: 0.8rem;
+  }
+}
+
+.phones {
+
+}
+
+
+.map {
+  transform: unset;
+  margin-bottom: 2rem;
+  height: min(56.8vw, 901px);
+  position: relative;
+
+  @include max-991 {
+    height: 500px;
+  }
+  @include max-768 {
+    margin-top: 0;
+    height: 300px;
+  }
+
+  div {
+    position: relative;
+    overflow: hidden;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  [class*='copyrights-pane'] {
+    display: none;
+  }
+  [class*='ground-pane'] {
+    filter: grayscale(1) saturate(1.4);
+  }
+}
+
+.phonesMap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 3rem;
+
+  div {
+    @media(min-width: 1100px) {
+      width: calc(50% - 1.5rem);
+    }
+  }
+}
+
+.mainContacts {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4rem;
+  margin-bottom: 5.6rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  max-width: 30rem;
+
+  @include max-1440 {
+    margin-bottom: 3rem;
+  }
+
+  @include max-1280 {
+    font-size: 1rem;
+    grid-row-gap: 1.5rem;
+  }
+
+  @include max-991 {
+    display: flex;
+    column-gap: 4rem;
+    max-width: 100%;
+    margin-bottom: 0;
+
+    & > * {
+      width: calc(50% - 2rem);
+    }
+  }
+  @media(max-width: 400px) {
+    flex-direction: column;
+  }
+
+
+  a {
+    display: block;
+  }
+  a:not(:first-of-type) {
+    margin-top: .5rem;
+  }
+}
+
+.mail {
+  font-size: 1.5rem;
+  text-transform: none;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+  display: inline-block!important;
+
+  @include max-1280 {
+    font-size: 1rem;
+  }
+
+  @include max-991 {
+  }
+
+  @include max-768 {
+    font-size: 0.85rem;
+  }
+}
+
+
+.phones-list {
+
+  @include max-1440 {
+    //grid-row-gap: 1.5rem;
+  }
+
+  @include max-1280 {
+    margin-bottom: 2.5rem;
+  }
+
+  @include max-991 {
+    display: flex;
+    column-gap: 3rem;
+    margin-bottom: 0;
+
+    @media(max-width: 500px) {
+      flex-direction: column;
+    }
+  }
+
+  div {
+    margin-top: 2.5rem;
+
+    @include max-991 {
+      width: calc(50% - 1.5rem);
+    }
+    @media(max-width: 500px) {
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+  }
+
+  dt {
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+
+    @include max-1440 {
+      font-size: 0.8rem;
+    }
+
+    @include max-1280 {
+      margin-bottom: 0.6rem;
+    }
+  }
+
+  dd {
+    font-size: 1.7rem;
+    font-weight: 500;
+    white-space: nowrap;
+
+    @include max-1440 {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.download {
+  margin-top: 2.5rem;
+
+  @include max-991 {
+    max-width: 22rem;
+    width: 100%;
+  }
+}

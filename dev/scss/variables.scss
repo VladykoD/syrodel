@@ -1,0 +1,223 @@
+@charset "utf-8";
+
+
+//functions
+@function hashReplace($colour) {
+  @if str-slice('#{$colour}', 0, 1) == '#' {
+    @return '%23' + str-slice('#{$colour}', 2, -1)
+  }
+  @return $colour;
+}
+
+// Colors
+$black: #1f1f23;
+$white: #ffffff;
+$purple: #1f1f36;
+$purple-leght: #d6d9ec;
+$blue: #45459b;
+$red: #ff1a1a;
+$orange: #f6a917;
+$orange-lighter: #fdeed1;
+
+$gray-lighter: #f6f7f9;
+$gray: #cdcdd4;
+$gray-darker: #a0a0ab;
+
+$selection: $orange;
+
+// Typography
+$muller: "Muller", sans-serif;
+
+// Transitions
+$ease: ease;
+$trans: 0.3s ease;
+$trans--long: 1s cubic-bezier(0.22, 1, 0.36, 1);
+$modal-settings: 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+
+// Viewports
+$viewport--sm: 480px;
+$viewport--md: 767px;
+$viewport--lg: 991px;
+$viewport--xl: 1280px;
+$viewport--xxl: 1440px;
+
+// grid
+$column-width: 7.14%;
+
+
+
+//easing
+$ease: ease;
+$easeOut: cubic-bezier(0.19, 1, 0.22, 1);
+$easeIn: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$easeInOut: cubic-bezier(0.35,0,0,1.01);
+
+
+
+//patterns
+@mixin borderRadius($radius: 16px) {
+  border-radius:$radius;
+}
+@mixin dropShadow($radius: 16px) {
+  box-shadow:0 0 #{$radius} rgba(0, 0, 0, 0.08);
+}
+
+
+
+//mixins
+@mixin stroke($color: #000, $size: 1px) {
+  text-shadow:
+      -#{$size} -#{$size} 0 $color,
+      0         -#{$size} 0 $color,
+      #{$size}  -#{$size} 0 $color,
+      #{$size}   0        0 $color,
+      #{$size}   #{$size} 0 $color,
+      0          #{$size} 0 $color,
+      -#{$size}  #{$size} 0 $color,
+      -#{$size}  0        0 $color;
+}
+@mixin pseudo($el: before, $height: 100%) {
+  &:#{$el} {
+    content:'';
+    width:0;
+    height:$height;
+    display:inline-block;
+    vertical-align:middle;
+  }
+}
+
+@mixin rect($paddingBottom: 100%) {
+  &:before {
+    content:'';
+    width:100%;
+    display:block;
+    padding-bottom:$paddingBottom;
+  }
+}
+
+
+@mixin justify() {
+  text-align:justify;
+  font-size:0;
+
+  &:after{
+    content:'';
+    width:100%;
+    height:0;
+    display:inline-block;
+  }
+}
+
+
+
+
+@mixin mw-768 {
+  @media (min-width: 767px ) {
+    @content;
+  }
+}
+@mixin mw-1024 {
+  @media (min-width: 1023px ) {
+    @content;
+  }
+}
+@mixin mw-1280 {
+  @media (min-width: 1279px ) {
+    @content;
+  }
+}
+@mixin mw-1440 {
+  @media (min-width: 1440px ) {
+    @content;
+  }
+}
+@mixin mw-1600 {
+  @media (min-width: 1601px ) {
+    @content;
+  }
+}
+
+@mixin dashed-box($borderRadius: 12, $colorBox: $white, $size: 2) {
+  overflow: hidden;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml,<svg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'><rect width='100%25' height='100%25' fill='none' rx='" + $borderRadius + "' ry='" + $borderRadius + "' stroke='%23" + $colorBox + "' stroke-width='" + $size + "' stroke-dasharray='10px, 10px' stroke-dashoffset='0' stroke-linecap='round'/></svg>");
+  border-radius: $borderRadius + px;
+}
+
+@mixin retina {
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    @content;
+  }
+}
+
+@mixin max-1600 {
+  @media (max-width: 1600px - 1) {
+    @content;
+  }
+}
+
+@mixin max-1440 {
+  @media (max-width: 1440px - 1) {
+    @content;
+  }
+}
+
+//1280
+@mixin max-1280 {
+  @media (max-width: 1280px - 1) {
+    @content;
+  }
+}
+
+//991
+@mixin max-991 {
+  @media (max-width: 991px - 1) {
+    @content;
+  }
+}
+
+//767
+@mixin max-768 {
+  @media (max-width: 768px - 1) {
+    @content;
+  }
+}
+
+//480
+@mixin max-480 {
+  @media (max-width: 480px - 1) {
+    @content;
+  }
+}
+
+@mixin buttonRes {
+  background: none;
+  padding: 0;
+  border: 0;
+}
+
+@mixin dashed-box($borderRadius: 12, $colorBox: $blue-lighter-2--svg) {
+  overflow: hidden;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml,<svg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'><rect width='100%25' height='100%25' fill='none' rx='" + $borderRadius + "' ry='" + $borderRadius + "' stroke='%23" + $colorBox + "' stroke-width='1' stroke-dasharray='5px, 5px' stroke-dashoffset='0' stroke-linecap='round'/></svg>");
+  border-radius: $borderRadius + px;
+}
+
+@function sizeLarge($size-in-px) {
+  @return $size-in-px * 1.2;
+}
+
+
+
+$selectionColor: '#f0f';
+$pink: '#f0f';
+$cian: '#f0f';
+$defaultTextColor: '#f0f';
+$gray-semidark: '#f0f';
+
+$accentFont: $muller;
+$mainFont: $muller;
+$defaultText: $muller;
+

@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "WebWorker",
+      "DOM",
+      "DOM.Iterable",
+      "ESNext",
+      "ScriptHost",
+      "es2015.iterable"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "target": "ESNext",
+////    ie11
+//    "target": "es5",
+    "sourceMap": true,
+    "outDir": "prod/build",
+    "baseUrl": "./",
+    "paths": {
+      "FONT/*": ["dev/fonts/*"],
+      "MEDIA/*": ["dev/media/*"],
+      "IMAGES/*": ["dev/media/images/*"],
+      "TYPES/*": ["dev/js/types/*"],
+      "STORE/*": ["dev/js/store/*"],
+      "HOOKS/*": ["dev/js/hooks/*"],
+      "COMPONENTS/*": ["dev/js/components/*"],
+      "COMMON/*": ["dev/js/components/common/*"]
+    },
+    "plugins": [{
+      "name": "typescript-plugin-css-modules",
+      "options": {
+        "classnameTransform": "camelCase"
+      }
+    }]
+  },
+  "exclude": ["node_modules"],
+  "files": [
+    "./dev/entry.ts"
+  ],
+  "include": [
+    "dev" ,
+    "*.ts",
+    "./dev/js/global.d.ts"
+  ]
+}

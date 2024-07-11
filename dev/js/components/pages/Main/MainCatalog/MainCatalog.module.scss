@@ -1,0 +1,150 @@
+.section {
+  background: $gray;
+  overflow: hidden;
+  position: relative;
+}
+.catalog-list {
+  position: relative;
+  display: block;
+  z-index: 3;
+  transition: color 0.3s $ease;
+
+  @include max-1280 {
+    margin: 0;
+  }
+
+  li {
+    width: 21ch;
+    margin: 0 calc(100% / 14) * 1;
+
+    @include max-991 {
+      width: 19ch;
+      margin: 0 5% 0 0;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.7em 0;
+    transition: color 0.3s $ease, opacity .3s $ease;
+    color: $black;
+    opacity: 1;
+
+    &:hover {
+      color: $blue;
+    }
+
+    @include max-480 {
+      padding: 0.5em 0;
+    }
+
+    &::after {
+      content: attr(data-col);
+      font-size: 0.5em;
+      margin-left: 0.5em;
+    }
+  }
+
+  &:hover {
+    color: $gray-darker;
+  }
+}
+.listActive {
+  //background: yellow;
+
+  a {
+    opacity: .4;
+  }
+}
+
+.active {
+  z-index: 2;
+
+  a {
+    opacity: 1;
+  }
+
+  .imageLarge {
+    img {
+      transition: transform .5s $ease .2s, opacity .5s $ease .2s;
+    }
+  }
+  .imageSmall {
+    img {
+      transition: transform .5s $ease .2s, opacity .5s $ease.2s;
+    }
+  }
+  .imageLarge,
+  .imageSmall {
+    img {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.imageLarge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 29%;
+  height: 88%;
+  z-index: 2;
+  overflow: hidden;
+  //opacity: 0;
+
+  img {
+    position: absolute;
+    transform: scale(.8);
+    transform-origin: center;
+    opacity: 0;
+    will-change: opacity, transform;
+    transition: transform .2s $ease .2s, opacity .2s $ease .2s;
+  }
+
+  @include max-1440 {
+    //right: -6.125rem;
+    width: 33%;
+  }
+  @include max-1280 {
+    //right: -5rem;
+    width: 33%;
+  }
+  @include max-991 {
+    //right: -16px;
+  }
+  @include max-768 {
+    display: none;
+  }
+}
+
+.imageSmall {
+  position: absolute;
+  bottom: 0;
+  right: 21%;
+  width: 15%;
+  height: 51%;
+  z-index: 3;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    transform: scale(.8);
+    transform-origin: center;
+    opacity: 0;
+    will-change: opacity, transform;
+    transition: transform .2s $ease .2s, opacity .2s $ease .2s;
+  }
+
+  @include max-1440 {
+    right: calc(21% );
+    width: 18%;
+  }
+  @include max-991 {
+    right: calc(23% );
+    width: 20%;
+  }
+  @include max-768 {
+    display: none;
+  }
+}

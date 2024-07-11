@@ -1,0 +1,16 @@
+.primitives {
+  a {
+    text-decoration: underline;
+    color: $black;
+    transition: color .3s $trans;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+
+  p + p {
+    margin-top: 1em;
+  }
+}

@@ -1,0 +1,32 @@
+.big-layout{
+
+  .wrapper{
+    margin:0 40px;
+  }
+  .noise-container{
+    position:fixed;
+  }
+
+  .margin{
+    &:last-child{
+      margin-bottom:0;
+      padding-bottom:160px;
+    }
+  }
+  h1, .h1{
+    max-width:70vw;
+  }
+  h2, .h2{
+    & + p{
+      margin-top:-40px;
+    }
+  }
+
+  .primitives + .button{
+    margin-top:120px;
+  }
+}
+
+.big-layout-inner{
+  //padding-bottom:95px;
+}

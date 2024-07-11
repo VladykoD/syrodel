@@ -1,0 +1,148 @@
+.file-wrapper{
+  pointer-events:none;
+  position: relative;
+  margin-top: 20px;
+  min-height: calc(1em + 20px);
+  font-size: 13px;
+
+  @include mw-1024 {
+    min-height: calc(1em + 48px);
+    margin-top: 30px;
+    font-size: 24px;
+  }
+  @include mw-1280 {
+    font-size: 28px;
+  }
+
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+
+    @include mw-1024 {
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 2;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 2px solid $white;
+    transition: opacity .3s $easeIn;
+    opacity: 0;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  input{
+    display:none;
+  }
+  .button1{
+    pointer-events:auto;
+    cursor:pointer;
+    padding: 10px 40px 10px 15px;
+    color: rgba(255,255,255,.3);
+    height: auto;
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 1em;
+    line-height: 1;
+    box-sizing: border-box;
+
+    @include mw-1024 {
+      padding: 24px 70px 24px 30px;
+    }
+
+    &:focus, &:active{
+      border: none;
+    }
+
+    &.file {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        right: 10px;
+        transform: translate3d(0, -50%, 0);
+        background: url('add_clip.svg') no-repeat center / 10px;
+
+        @include mw-1024 {
+          right: 25px;
+          background-size: auto 20px;
+        }
+      }
+    }
+  }
+
+
+  &.not-empty{
+    &::before {
+      opacity: 1;
+    }
+
+    .file {
+      display: none;
+    }
+
+    .file-right{
+      display:flex;
+    }
+  }
+}
+
+.file-right{
+  display:none;
+  position: relative;
+}
+.file-names{
+  width: 100%;
+  align-items:center;
+  pointer-events:auto;
+  color: $white;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+.file-clear{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  width:40px;
+  height:40px;
+  //align-self:center;
+  pointer-events:auto;
+  cursor:pointer;
+  font-size:0;
+  background:url('remove.svg') no-repeat center / 10px;
+
+  @include mw-1024 {
+    right: 15px;
+    background-size: auto 17px;
+  }
+}
+

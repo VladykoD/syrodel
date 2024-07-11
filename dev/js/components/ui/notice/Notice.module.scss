@@ -1,0 +1,37 @@
+.wrapper{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  right:0px;
+  padding: 10px;
+  z-index:10000;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.item{
+  width:100%;
+  max-width:334px;
+  margin-top:20px;
+  border: 1px solid $gray;
+  pointer-events:auto;
+  position:relative;
+  background-color:#FFF;
+
+  &.error{
+    color:$red;
+  }
+}
+.inner{
+  max-width:300px;
+  padding:30px;
+  box-sizing:border-box;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper{
+    left:65px;
+    bottom:65px;
+    right:65px;
+  }
+}

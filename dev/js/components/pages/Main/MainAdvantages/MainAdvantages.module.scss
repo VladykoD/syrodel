@@ -1,0 +1,169 @@
+.advantages {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0;
+    transform: translateX(-510px);
+    right: 50%;
+    bottom: 0;
+    width: 50vw;
+    background-image: url('img/pattern.svg');
+    background-size: 100px auto;
+    background-repeat: repeat;
+
+    @include max-1280 {
+      transform: translateX(-310px);
+    }
+    @include max-991 {
+      display: none;
+    }
+  }
+
+  p + p {
+    margin-top: .6rem;
+  }
+}
+.title {
+  margin-bottom: 4rem;
+  composes: title from global;
+  composes: title-h2 from global;
+
+  @include max-1280 {
+    margin-bottom: 0;
+  }
+}
+.text-content {
+  line-height: 1.4;
+  font-size: 1.3rem;
+
+  @include max-991 {
+    font-size: 1.15rem;
+  }
+}
+
+.wrap {
+  flex-direction: row;
+  row-gap: 7rem;
+  composes: container from global;
+  composes: row from global;
+  composes: row--justify from global;
+
+  @include max-1280 {
+    flex-direction: column;
+  }
+  @include max-768 {
+    row-gap: 64px;
+  }
+}
+
+.left {
+  width: calc(100% / 14) * 5;
+  composes: col from global;
+
+  @include max-1280 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5rem;
+  }
+  @include max-768 {
+    flex-direction: column;
+    column-gap: 0;
+    row-gap: 40px;
+  }
+}
+
+.right {
+  width: calc(100% / 14) * 7;
+  composes: col from global;
+
+  @include max-1280 {
+    width: 100%;
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  line-height: 1.4;
+  row-gap:  4.5rem;;
+
+  @include max-1280 {
+    margin-bottom: 0;
+    column-gap: 4rem;
+    flex-wrap: wrap;
+    row-gap: 4rem;
+  }
+  @include max-768 {
+    column-gap: 32px;
+    row-gap: 48px;
+  }
+  @include max-480 {
+    column-gap: 0;
+
+  }
+}
+
+.listItem {
+  width: calc(100% / 7 * 3);
+  position: relative;
+
+  @include max-1280 {
+    width: calc(50% - 2rem);
+  }
+  @include max-768 {
+    width: calc(50% - 16px);
+  }
+  @include max-480 {
+    width: 100%;
+    position: relative;
+  }
+}
+
+.listIcon {
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-bottom: 1rem;
+
+  @include max-1280 {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+  @include max-768 {
+    width: 48px;
+    height: 48px;
+  }
+
+  @include max-480 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.listTitle {
+  font-weight: 500;
+  font-size: 1.5rem;
+  max-width: 190px;
+  margin-bottom: 24px;
+  line-height: 1.083em;
+  letter-spacing: 0.02em;
+
+
+  @include max-768 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+
+  @include max-480 {
+    padding-left: 56px;
+    font-size: 1.1rem;
+  }
+}

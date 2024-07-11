@@ -1,0 +1,261 @@
+.catalog {
+  margin: 0 auto;
+
+  @include max-768 {
+    padding-bottom: 0;
+  }
+}
+
+.wrap {
+  composes: container from global;
+  composes: row from global;
+
+  @include max-768 {
+    flex-direction: column;
+  }
+}
+
+.left {
+  composes: col from global;
+  width: calc(100% / 14) * 5.5;
+  transform: translateX(calc(100% / 7));
+  margin-top: 7rem;
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include max-1280 {
+    width: calc(100% / 14) * 7;
+    transform: translateX(0);
+  }
+  @include max-991 {
+    width: 45%;
+    margin-top: 2rem;
+  }
+  @include max-768 {
+    display: none;
+  }
+}
+.image {
+  display: none;
+
+  @include max-768 {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 24px;
+    max-width: 220px;
+    margin-right: auto;
+    transform: translateX(-16px);
+  }
+  @include max-480 {
+    transform: translateX(0);
+    max-width: 100%;
+  }
+}
+
+.mobile {
+  @include max-768 {
+    display: flex;
+    flex-direction: row;
+    row-gap: 16px;
+  }
+  @include max-480 {
+    flex-direction: column;
+    row-gap: 32px;
+  }
+}
+
+.right {
+  composes: col from global;
+  width: calc(100% / 14) * 8.5;
+  text-align: right;
+  margin-right: 6%;
+
+  @include max-1600 {
+    margin-right: 0;
+  }
+
+  @include max-1440 {
+  }
+
+  @include max-1280 {
+    width: calc(100% / 14) * 7;
+  }
+  @include max-991 {
+    width: 60%;
+  }
+  @include max-768 {
+    width: 100%;
+  }
+}
+
+.catalog-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.catalog-image {
+  width: 18rem;
+  height: 26rem;
+  margin: auto;
+  box-shadow: -4px 0px 8px 0px rgba(221, 33, 12, 0.4),
+  -16px 0px 8px 0px rgba(221, 33, 12, 0.4);
+  object-fit: cover;
+
+  @include max-991 {
+    width: 18rem * 0.8;
+    height: 26rem * 0.8;
+  }
+  @include max-768 {
+    width: 18rem * 0.5;
+    height: 26rem * 0.5;
+  }
+  @include max-480 {
+    width: 18rem * 0.8;
+    height: 26rem * 0.8;
+  }
+}
+
+.text-block {
+  padding: 6rem;
+  margin-bottom: 4.5rem;
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+
+  @include max-768 {
+    min-height: 1px;
+  }
+
+  &::after {
+    z-index: -2;
+    content: "";
+    position: absolute;
+    top: 0;
+    transform: translateX(0px);
+    left: 50%;
+    bottom: 0;
+    width: 50vw;
+    background-image: url("img/pattern-orange.svg");
+    background-size: 100px auto;
+    background-repeat: repeat;
+    opacity: 0.2;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $orange-lighter;
+    z-index: -1;
+
+    @include max-1280 {
+      right: -5rem;
+    }
+    @include max-991 {
+      right: -16px;
+      left: -16px;
+    }
+  }
+
+  @include max-1440 {
+    padding: 4rem 4rem 4rem 6rem;
+  }
+  @include max-1280 {
+    padding: 4rem 0 4rem 8rem;
+    width: calc(100% + 5rem);
+    transform: translateX(-5rem);
+  }
+
+  @include max-991 {
+    width: calc(100% + 16px);
+    transform: translateX(-16px);
+    padding: 40px 32px 40px 48px;
+    margin-bottom: 3.5rem;
+  }
+
+  @include max-768 {
+    padding: 32px 0;
+    text-align: left;
+    width: 100%;
+    transform: translateX(0);
+  }
+  @include max-768 {
+    margin-bottom: 32px;
+  }
+
+}
+
+.title {
+  composes: title from global;
+  composes: title-h2 from global;
+  color: $orange;
+  margin-bottom: 2rem;
+  margin-top: auto;
+
+
+  @include max-991 {
+    margin-bottom: 24px;
+  }
+
+  @include max-768 {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+.text-content {
+  font-size: 1.3rem;
+  max-width: 38ch;
+  margin-left: auto;
+  margin-top: auto;
+
+  @include max-991 {
+    font-size: 1rem;
+  }
+  @include max-768 {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+.links {
+  text-transform: uppercase;
+  padding-left: calc(100% / 14) * 3;
+
+  @include max-768 {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  @include max-480 {
+    min-width: 1px;
+    max-width: 100%;
+  }
+
+  br {
+    content: "";
+    position: relative;
+    height: 2rem;
+    display: block;
+
+    @include max-991 {
+      height: 1.5rem;
+    }
+  }
+}
+
+

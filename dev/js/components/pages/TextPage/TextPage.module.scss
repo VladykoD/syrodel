@@ -1,0 +1,47 @@
+.section {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0;
+    transform: translateX(-510px);
+    right: 50%;
+    bottom: 0;
+    width: 50vw;
+    background-image: url('img/pattern.svg');
+    background-size: 100px auto;
+    background-repeat: repeat;
+
+    @include max-1280 {
+      transform: translateX(-310px);
+    }
+    @include max-991 {
+      display: none;
+    }
+  }
+}
+.title {
+  margin-bottom: 4rem;
+  composes: title from global;
+  composes: title-h2 from global;
+
+  @include max-1280 {
+    margin-bottom: 2rem;
+  }
+}
+.text {
+  line-height: 1.4;
+  font-size: 1.3rem;
+  max-width: 70ch;
+
+  @include max-991 {
+    font-size: 1.15rem;
+  }
+}
+
+.wrap {
+  composes: container from global;
+}
